@@ -1,16 +1,23 @@
 #  React SSR Loadable Components Boilerplate
 
-I thought of putting this code in a repo because of the struggles I had to face while trying to build a similar solution for a project in my company. For someone that may find themselves in a similar situation, I hope this project helps them to bootstrap [React using SSR](https://reactjs.org/docs/code-splitting.html#reactlazy) with [Loadable Components](https://loadable-components.com/) in little to no time.
+I thought of putting this code in a repo because of the struggles I had to face while trying to build a similar solution for a project in my company. For someone that may find themselves in a similar situation, I hope this project helps them to bootstrap [React using SSR](https://reactjs.org/docs/code-splitting.html#reactlazy) with [Loadable Components](https://loadable-components.com/) in little to no time :grinning:.
 
 ## Motivation
 Implement **Code Splitting** in **React** using **Loadable Components** specially when you are doing **Server Side Rendering**.
 
 ## Challenges
-While the official documentation of Loadable Components try to make it **sound easy** to implement code splitting using their library after you follow the steps given at https://loadable-components.com/docs/server-side-rendering/, the reality could be a little different :disappointed_relieved:. There are a lot of nuances that you'll come across once you start implementing the steps specially coming to terms with some of the keywords like **node stats**, **web stats** and which one is really needed over the other. Some of the terms are obviously not clear and **one very important step**(which I'll talk about shortly), which I found to be the **most critical one** is missing in their documentation or rather they should have done a better job of calling it out because what Loadable Components does for you is great otherwise.
+While the official documentation of Loadable Components try to make it **sound easy** to implement code splitting using their library after you follow the steps given at https://loadable-components.com/docs/server-side-rendering/, the reality could be a little different :disappointed_relieved:. There are a lot of nuances that you'll come across once you start implementing the steps specially coming to terms with some of the keywords like **node stats**, **web stats** and which one is really needed over the other. Some of the terms are obviously not clear and **[one very important step](/README.md#configure-react-scripts-to-use-the-loadable-babel-and-webpack-plugins-which-enables-naming-the-chunks-and-enabling-code-splitting-respectively)**(the most crucial one tbh and one which I didn't find nowhere :sob: and had to discover after a lot of experimentation), is **missing** in their documentation or rather they should have done a better job of calling it out because what Loadable Components does for you is great otherwise.
 
 ## What this repo can do for you
 - Save you from days worth of time figuring out some missing but obvious things while trying to implement **Code Splitting** using [Loadable Components](https://loadable-components.com/docs/server-side-rendering/) and **SSR**.
-- Provide you with some crucial code that you can plugin **as is** in your app to make it work.
+- Provide you with some crucial code that you can plugin **AS IS** in your existing app to make it work.
+
+## Prerequisites
+
+### The following 3 libraries are ABSOLUTE ESSENTIALS in the context of this code for all of this to work,
+1. [Loadable Components](https://loadable-components.com/)
+2. [Customize CRA](https://github.com/arackaf/customize-cra)
+3. [Webpack](https://webpack.js.org/)
 
 ## App Structure
 <img width="296" alt="Screen Shot 2021-08-29 at 7 49 36 PM" src="https://user-images.githubusercontent.com/34688999/131269371-b843e4ed-0ef6-41ef-8f5a-3f74a4ccd525.png">
@@ -19,10 +26,10 @@ While the official documentation of Loadable Components try to make it **sound e
 | File Name  | Description |
 | ------------- | ------------- |
 | src/index.tsx  | Renders/Hydrates the app on the browser  |
-| src/App.tsx  | Uses React Router to load and match 2 routes; / matching to home-page.tsx and /loadable-page matching to loadable-page respectively while **dynamically importing** them both  |
-| config-overrides.js  | Used by customize-cra to apply your custom webpack configuration before react-script's configuration takes over. customize-cra works with react-app-rewired to run most of react scripts  |
+| src/App.tsx  | Uses React Router to load and match 2 routes; **/** matching to `home-page.tsx` and **/loadable-page** matching to `loadable-page.tsx` respectively while **dynamically importing** them both  |
+| config-overrides.js  | Used by **customize-cra** to apply your custom webpack configuration before react-script's configuration takes over. customize-cra works with **react-app-rewired** to run most of react scripts  |
 | webpack-config.js  | Custom webpack configuration to bundle the code before it can be used server side with Express.  |
-| server/index.js  | Enrty Point for the custom webpack configuration above to start the Express Instance and server React App Server Side.  |
+| server/index.js  | Entry Point for the custom webpack configuration above to start the Express Instance and server React App Server Side.  |
 
 ## Important Code Blocks
 
@@ -116,7 +123,7 @@ plugins: [new LoadablePlugin()],
 ### webpack cli generating the following chunks; you can see that internally it maps the numbered chunks to logical names on the right
 <img width="525" alt="Screen Shot 2021-08-29 at 8 45 31 PM" src="https://user-images.githubusercontent.com/34688999/131271173-2955bccc-0fc7-4751-83e5-b772488fc3f7.png">
 
-Checkout how the chunks will be loaded on demand while SSR would still work if you reload a route. Happy Coding :v:
+Checkout how the chunks will be loaded on demand while SSR would still work if you reload a route. **Happy Coding** :v:
 
 ## References
 1. [React](https://reactjs.org/docs/code-splitting.html#reactlazy)
