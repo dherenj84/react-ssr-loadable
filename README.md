@@ -14,7 +14,7 @@ While the official documentation of Loadable Components try to make it **sound e
 
 ## Prerequisites
 
-### The following 3 libraries are ABSOLUTE ESSENTIALS in the context of this code for all of this to work,
+### The following 3 libraries are ABSOLUTE ESSENTIALS for this solution to work,
 1. [Loadable Components](https://loadable-components.com/)
 2. [Customize CRA](https://github.com/arackaf/customize-cra)
 3. [Webpack](https://webpack.js.org/)
