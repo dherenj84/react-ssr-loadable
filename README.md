@@ -6,7 +6,7 @@ I thought of putting this code in a repo because of the struggles I had to face 
 Implement **Code Splitting** in **React** using **Loadable Components** specially when you are doing **Server Side Rendering**.
 
 ## Challenges
-While the official documentation of Loadable Components try to make it **sound easy** to implement code splitting using their library after you follow the steps given at https://loadable-components.com/docs/server-side-rendering/, the reality could be a little different :disappointed_relieved:. There are a lot of nuances that you'll come across once you start implementing the steps specially coming to terms with some of the keywords like **node stats**, **web stats** and which one is really needed over the other. Some of the terms are obviously not clear and **[one very important step](/README.md#configure-react-scripts-to-use-the-loadable-babel-and-webpack-plugins-which-enables-naming-the-chunks-and-enabling-code-splitting-respectively)**(the most crucial one tbh and one which I didn't find nowhere :sob: and had to discover after a lot of experimentation), is **missing** in their documentation or rather they should have done a better job of calling it out because what Loadable Components does for you is great otherwise.
+While the official documentation of Loadable Components try to make it **sound easy** to implement code splitting using their library after you follow the steps given at https://loadable-components.com/docs/server-side-rendering/, the reality could be a little different :disappointed_relieved:. There are a lot of nuances that you'll come across once you start implementing the steps specially coming to terms with some of the keywords like **node stats**, **web stats** and which one is really needed over the other. Some of the terms are obviously not clear and **[one very important step](#config-overridesjs)**(the most crucial one tbh and one which I didn't find nowhere :sob: and had to discover after a lot of experimentation), is **missing** in their documentation or rather they should have done a better job of calling it out because what Loadable Components does for you is great otherwise.
 
 ## What this repo can do for you
 - Save you from days worth of time figuring out some missing but obvious things while trying to implement **Code Splitting** using [Loadable Components](https://loadable-components.com/docs/server-side-rendering/) and **SSR**.
@@ -109,8 +109,8 @@ plugins: [new LoadablePlugin()],
 ```
 
 ## How to run
-1. Run `npm run build` which triggers react-scripts first to create static assets and then triggers webpack cli to bundle the code so that it can be run server side.
-2. Run `npm run start-ssr` which internally loads the bundle created by Step 1 above and starts the Express instance.
+1. Run `npm run build` and then `npm run start-ssr` if you prefer to build and run the app separately.
+2. Or, just run `npm run start-ssr-watch` which runs both of the above commands for you and also watches for any changes and rebuilds and restarts the server upon changes.
 
 ## What you should expect to see
 
