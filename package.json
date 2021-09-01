@@ -22,9 +22,10 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
+    "build": "rimraf build && react-app-rewired build && npx webpack",
     "start": "react-app-rewired start",
     "start-ssr": "node ./build/server/bundle.js",
-    "build": "rimraf build && react-app-rewired build && npx webpack",
+    "start-ssr-watch": "nodemon -e tsx,scss --exec 'npm run build && npm run start-ssr'",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject"
   },
@@ -53,6 +54,7 @@
     "@types/loadable__component": "^5.13.4",
     "@types/react-router-dom": "^5.1.8",
     "customize-cra": "^1.0.0",
+    "nodemon": "^2.0.12",
     "react-app-rewired": "^2.1.8",
     "webpack-cli": "^4.8.0"
   }
