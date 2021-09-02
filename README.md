@@ -89,6 +89,7 @@ plugins: [new LoadablePlugin()],
   // console.log(styleTags);
 
   // You can now collect your script tags
+  // I removed async from script tags as it wasn't working as expected when the scripts were loaded asynchronously
   const scriptTags = extractor.getScriptTags().replace(/async /g, ""); // or extractor.getScriptElements();
     const indexFile = path.resolve("./build/index.html");
 
