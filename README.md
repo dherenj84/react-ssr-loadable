@@ -27,9 +27,9 @@ While the official documentation of Loadable Components try to make it **sound e
 | ------------- | ------------- |
 | src/index.tsx  | Renders/Hydrates the app on the browser  |
 | src/App.tsx  | Uses React Router to load and match 2 routes; **/** matching to `home-page.tsx` and **/loadable-page** matching to `loadable-page.tsx` respectively while **dynamically importing** them both  |
-| config-overrides.js  | Used by **customize-cra** to apply your custom webpack configuration before react-script's configuration takes over. customize-cra works with **react-app-rewired** to run most of react scripts  |
+| config-overrides.js  | Used by **customize-cra** to apply your custom webpack configuration before react-script's configuration takes over. **customize-cra** works with **react-app-rewired** to run most of react scripts  |
 | webpack-config.js  | Custom webpack configuration to bundle the code before it can be used server side with Express.  |
-| server/index.js  | Entry Point for the custom webpack configuration above to start the Express Instance and server React App Server Side.  |
+| server/index.js  | Entry Point for the custom webpack configuration above to start the Express Instance and serve React App Server Side.  |
 
 ## Important Code Blocks
 
