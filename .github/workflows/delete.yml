@@ -18,4 +18,4 @@ jobs:
     steps:
       # Runs a single command using the runners shell
       - name: Deleted Branch Information
-        run: echo The Branch that was deleted was ${GITHUB_REF##*/}
+        run: echo The Branch that was deleted was ${github.event.ref}
