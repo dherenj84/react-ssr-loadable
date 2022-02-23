@@ -27,4 +27,4 @@ jobs:
           cf_api: https://api.run.pivotal.io/
           cf_username: jaindheren@gmail.com
           cf_password: Paplu@1234
-          command: cf help
+          command: help
