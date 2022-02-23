@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: DELETE BRANCH
 
 # Controls when the workflow will run
 on:
@@ -18,4 +18,4 @@ jobs:
     steps:
       # Runs a single command using the runners shell
       - name: Deleted Branch Information
-        run: echo The Branch that was deleted was ${github.event.ref}
+        run: echo "The Branch that was deleted was ${{github.event.ref}}"
